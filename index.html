@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نت‌داکتر | سیستم خبره عیب‌یابی اینترنت</title>
+<meta name="description" content="سیستم خبرهٔ فارسی برای تشخیص قطعی و رفع مشکلات اینترنت در ویندوز — با موتور استنتاج مبتنی بر قواعد، پایگاه دانش شبکه و راه‌حل‌های گام‌به‌گام.">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📶</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand" id="brandHome" title="بازگشت به خانه">
+      <div class="brand-icon">📶</div>
+      <div class="brand-text">
+        <strong>نت‌داکتر</strong>
+        <span>سیستم خبرهٔ عیب‌یابی اینترنت</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <button class="nav-btn active" data-nav="home">تشخیص مشکل</button>
+      <button class="nav-btn" data-nav="kb">پایگاه دانش</button>
+      <button class="nav-btn" data-nav="about">دربارهٔ سیستم</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ============ خانه ============ -->
+  <section id="home" class="screen active">
+    <div class="hero glass">
+      <div class="hero-badge">🧠 موتور استنتاج مبتنی بر قواعد • پایگاه دانش شبکه</div>
+      <h2>اینترنت قطع شده؟ <span class="grad-text">علتش را دقیق پیدا کن</span></h2>
+      <p class="hero-p">
+        نت‌داکتر مثل یک کارشناس شبکهٔ باتجربه، چند سؤال هدفمند از شما می‌پرسد، پاسخ‌ها را با
+        پایگاه دانشی از <b>قواعد IF–THEN</b> تطبیق می‌دهد، علت ریشه‌ای قطعی اینترنت را تشخیص می‌دهد
+        و <b>راه‌حل گام‌به‌گام</b> — همراه با دستورهای آمادهٔ قابل کپی — ارائه می‌کند.
+      </p>
+      <button id="startBtn" class="btn-primary">🚀 شروع تشخیص هوشمند</button>
+      <div class="hero-note">⏱ زمان تقریبی: ۲ دقیقه • بدون نیاز به نصب • همهٔ پردازش‌ها داخل مرورگر شماست</div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat glass"><b id="statDiag">—</b><span>تشخیص تخصصی</span></div>
+      <div class="stat glass"><b id="statRules">—</b><span>قاعدهٔ خبرگی</span></div>
+      <div class="stat glass"><b id="statQ">—</b><span>سؤال تشخیصی</span></div>
+    </div>
+
+    <h3 class="section-title">⚡ سه راه‌حلِ سریع (قبل از هر چیز امتحان کنید)</h3>
+    <div class="tips-row">
+      <div class="tip glass">
+        <div class="tip-head">۱) ری‌استارت کامل مودم</div>
+        <p>برق مودم را بکشید، <b>۳۰ ثانیه</b> صبر کنید و دوباره وصل کنید. همین کار ساده بیش از ۴۰٪ قطعی‌ها را حل می‌کند.</p>
+      </div>
+      <div class="tip glass">
+        <div class="tip-head">۲) رفرش تنظیمات شبکه</div>
+        <p>در CMD (با دسترسی Administrator) اجرا کنید:</p>
+        <div class="cmd"><code dir="ltr">ipconfig /flushdns &amp;&amp; ipconfig /release &amp;&amp; ipconfig /renew</code><button class="copy-btn" data-copy="ipconfig /flushdns && ipconfig /release && ipconfig /renew">کپی</button></div>
+      </div>
+      <div class="tip glass">
+        <div class="tip-head">۳) عیب‌یاب ویندوز</div>
+        <p>Settings ← System ← Troubleshoot ← Other troubleshooters ← <b>Internet Connections</b> را اجرا کنید تا ویندوز خودش مشکل را پیدا کند.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ آزمون ============ -->
+  <section id="quiz" class="screen">
+    <div class="quiz-wrap glass">
+      <div class="progress-head">
+        <span id="qCounter">سؤال ۱</span>
+        <button id="backBtn" class="btn-ghost">→ بازگشت</button>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <div id="questionCard"></div>
+    </div>
+  </section>
+
+  <!-- ============ نتیجه ============ -->
+  <section id="result" class="screen">
+    <div id="resultCard"></div>
+  </section>
+
+  <!-- ============ پایگاه دانش ============ -->
+  <section id="kb" class="screen">
+    <h3 class="section-title">📚 پایگاه دانش — تشخیص‌ها و راه‌حل‌ها</h3>
+    <p class="muted">هر کارت، یک «گزارهٔ خبرگی» است که موتور استنتاج می‌تواند به آن برسد. روی هر کارت کلیک کنید تا راه‌حل گام‌به‌گام را ببینید.</p>
+    <div id="kbGrid" class="kb-grid"></div>
+    <h3 class="section-title">⚖️ قواعد استنتاج (IF–THEN)</h3>
+    <p class="muted">این همان قوانینی است که موتور استنتاج روی پاسخ‌های شما اجرا می‌کند:</p>
+    <div id="rulesList" class="rules-list"></div>
+  </section>
+
+  <!-- ============ درباره ============ -->
+  <section id="about" class="screen">
+    <div class="about glass">
+      <h3>🧠 این سیستم چطور «فکر» می‌کند؟</h3>
+      <p>
+        نت‌داکتر یک <b>سیستم خبره (Expert System)</b> کلاسیک است؛ همان معماری‌ای که در دههٔ ۱۹۸۰ برای
+        تشخیص پزشکی و مهندسی ساخته می‌شد، این‌بار برای عیب‌یابی شبکه. چهار جزء اصلی دارد:
+      </p>
+      <div class="about-grid">
+        <div class="about-card">
+          <b>۱. پایگاه دانش (Knowledge Base)</b>
+          <p><span class="stat-inline" id="aboutQ">—</span> سؤال تشخیصی، <span class="stat-inline" id="aboutD">—</span> گزارهٔ تشخیص و
+          <span class="stat-inline" id="aboutR">—</span> قاعدهٔ IF–THEN که از الگوهای رایج خرابی اینترنت
+          استخراج شده‌اند؛ از آدرس APIPA و DNS خراب تا ریست Winsock و درایور WLAN.</p>
+        </div>
+        <div class="about-card">
+          <b>۲. موتور استنتاج (Inference Engine)</b>
+          <p>پاسخ‌های شما به‌صورت «واقعیت» ثبت می‌شوند؛ سپس همهٔ قواعد ارزیابی و قاعدهٔ برتر
+          (بیشترین درصد اطمینان) انتخاب می‌شود — استنتاج رو به جلو (Forward Chaining).</p>
+        </div>
+        <div class="about-card">
+          <b>۳. سازوکار توضیح (Explanation Facility)</b>
+          <p>بخش «چرا این تشخیص؟» نشان می‌دهد کدام واقعیت‌ها را داده‌اید و کدام قاعده فعال شده است؛
+          سیستم جعبهٔ سیاه نیست و استدلالش کاملاً شفاف است.</p>
+        </div>
+        <div class="about-card">
+          <b>۴. رابط کاربری تطبیقی</b>
+          <p>بر اساس جواب‌ها، سؤالات بی‌ربط حذف می‌شوند؛ مثلاً اگر همهٔ دستگاه‌ها قطع باشند،
+          دیگر سراغ تست‌های تک‌سیستمی نمی‌رود و مستقیم سراغ مودم و خط می‌رود.</p>
+        </div>
+      </div>
+
+      <h3>🩺 نحوهٔ استفاده</h3>
+      <ol class="about-ol">
+        <li>روی «شروع تشخیص هوشمند» بزنید و به هر سؤال دقیق جواب بدهید.</li>
+        <li>جایی که دستور داده شد، آن را در CMD اجرا کنید و نتیجه را گزارش دهید (هر دستور دکمهٔ کپی دارد).</li>
+        <li>در انتها تشخیص + درصد اطمینان + راه‌حل گام‌به‌گام را می‌گیرید؛ می‌توانید گزارش را چاپ یا کپی کنید.</li>
+      </ol>
+
+      <h3>⚠️ سلب مسئولیت</h3>
+      <p>
+        تشخیص‌ها بر پایهٔ الگوهای رایج خرابی است و ممکن است در موارد خاص نادرست باشد. برای مشکلات
+        سخت‌افزاری مودم، خط یا خرابی در شبکهٔ اپراتور، با پشتیبانی سرویس‌دهندهٔ خود تماس بگیرید.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>نت‌داکتر — سیستم خبرهٔ متن‌باز عیب‌یابی اینترنت • ساخته‌شده با ❤️</span>
+    <a id="repoLink" href="#" target="_blank" rel="noopener">⭐ سورس در گیت‌هاب</a>
+  </div>
+</footer>
+
+<div id="toast" class="toast">✔ کپی شد</div>
+
+<script src="kb.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
