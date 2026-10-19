@@ -36,11 +36,12 @@
   <!-- ============ خانه ============ -->
   <section id="home" class="screen active">
     <div class="hero glass">
-      <div class="hero-badge">🧠 موتور استنتاج مبتنی بر قواعد • پایگاه دانش شبکه</div>
+      <div class="hero-badge">🧠 موتور استنتاج مبتنی بر قواعد • ویزارد تشخیص ۱۰ مرحله‌ای • نسخهٔ ۲.۰</div>
       <h2>اینترنت قطع شده؟ <span class="grad-text">علتش را دقیق پیدا کن</span></h2>
       <p class="hero-p">
-        نت‌داکتر مثل یک کارشناس شبکهٔ باتجربه، چند سؤال هدفمند از شما می‌پرسد، پاسخ‌ها را با
-        پایگاه دانشی از <b>قواعد IF–THEN</b> تطبیق می‌دهد، علت ریشه‌ای قطعی اینترنت را تشخیص می‌دهد
+        نت‌داکتر مثل یک کارشناس شبکهٔ باتجربه، یک <b>ویزارد ۱۰ مرحله‌ای</b> را با شما طی می‌کند — از
+        بررسی محدوده و خط و مودم تا لایه‌های IP، DNS، نرم‌افزارهای امنیتی و مقایسهٔ دستگاه‌ها —
+        پاسخ‌ها را با پایگاه دانشی از <b>قواعد IF–THEN</b> تطبیق می‌دهد، علت ریشه‌ای قطعی اینترنت را تشخیص می‌دهد
         و <b>راه‌حل گام‌به‌گام</b> — همراه با دستورهای آمادهٔ قابل کپی — ارائه می‌کند.
       </p>
       <button id="startBtn" class="btn-primary">🚀 شروع تشخیص هوشمند</button>
@@ -48,9 +49,10 @@
     </div>
 
     <div class="stats-row">
+      <div class="stat glass"><b id="statStages">—</b><span>مرحلهٔ ویزارد</span></div>
+      <div class="stat glass"><b id="statQ">—</b><span>سؤال تشخیصی</span></div>
       <div class="stat glass"><b id="statDiag">—</b><span>تشخیص تخصصی</span></div>
       <div class="stat glass"><b id="statRules">—</b><span>قاعدهٔ خبرگی</span></div>
-      <div class="stat glass"><b id="statQ">—</b><span>سؤال تشخیصی</span></div>
     </div>
 
     <h3 class="section-title">⚡ سه راه‌حلِ سریع (قبل از هر چیز امتحان کنید)</h3>
@@ -75,9 +77,13 @@
   <section id="quiz" class="screen">
     <div class="quiz-wrap glass">
       <div class="progress-head">
-        <span id="qCounter">سؤال ۱</span>
+        <div class="stage-head">
+          <span class="stage-icon" id="stageIcon">🎯</span>
+          <span id="qCounter">مرحلهٔ ۱ از ۱۰</span>
+        </div>
         <button id="backBtn" class="btn-ghost">→ بازگشت</button>
       </div>
+      <div class="stage-dots" id="stageDots"></div>
       <div class="progress"><div id="progressBar"></div></div>
       <div id="questionCard"></div>
     </div>
@@ -90,6 +96,9 @@
 
   <!-- ============ پایگاه دانش ============ -->
   <section id="kb" class="screen">
+    <h3 class="section-title">🧭 مراحل ده‌گانهٔ ویزارد تشخیص</h3>
+    <p class="muted">هر تشخیص، این ۱۰ مرحله را به‌صورت تطبیقی طی می‌کند — سؤال‌های بی‌ربط به پروندهٔ شما حذف می‌شوند:</p>
+    <div id="stagesList" class="stages-grid"></div>
     <h3 class="section-title">📚 پایگاه دانش — تشخیص‌ها و راه‌حل‌ها</h3>
     <p class="muted">هر کارت، یک «گزارهٔ خبرگی» است که موتور استنتاج می‌تواند به آن برسد. روی هر کارت کلیک کنید تا راه‌حل گام‌به‌گام را ببینید.</p>
     <div id="kbGrid" class="kb-grid"></div>
@@ -104,7 +113,8 @@
       <h3>🧠 این سیستم چطور «فکر» می‌کند؟</h3>
       <p>
         نت‌داکتر یک <b>سیستم خبره (Expert System)</b> کلاسیک است؛ همان معماری‌ای که در دههٔ ۱۹۸۰ برای
-        تشخیص پزشکی و مهندسی ساخته می‌شد، این‌بار برای عیب‌یابی شبکه. چهار جزء اصلی دارد:
+        تشخیص پزشکی و مهندسی ساخته می‌شد، این‌بار برای عیب‌یابی شبکه — با یک <b>ویزارد ۱۰ مرحله‌ای</b> که لایه‌های
+        مختلف شبکه را به‌ترتیب بررسی می‌کند. چهار جزء اصلی دارد:
       </p>
       <div class="about-grid">
         <div class="about-card">
@@ -149,7 +159,7 @@
 
 <footer class="footer">
   <div class="container footer-inner">
-    <span>نت‌داکتر — سیستم خبرهٔ متن‌باز عیب‌یابی اینترنت • ساخته‌شده با ❤️</span>
+    <span>نت‌داکتر نسخهٔ ۲.۰ — سیستم خبرهٔ متن‌باز عیب‌یابی اینترنت • ساخته‌شده با ❤️</span>
     <a id="repoLink" href="#" target="_blank" rel="noopener">⭐ سورس در گیت‌هاب</a>
   </div>
 </footer>

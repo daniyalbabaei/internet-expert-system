@@ -100,7 +100,7 @@ main{padding:34px 0 60px}
 }
 .btn-ghost:hover{color:var(--text);border-color:rgba(34,211,238,.4)}
 
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 30px}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0 30px}
 .stat{padding:20px;text-align:center}
 .stat b{display:block;font-size:30px;font-weight:900;color:var(--accent)}
 .stat span{font-size:13px;color:var(--muted)}
@@ -134,8 +134,14 @@ main{padding:34px 0 60px}
 
 /* ---------- آزمون ---------- */
 .quiz-wrap{max-width:680px;margin:0 auto;padding:28px}
+.stage-head{display:flex;align-items:center;gap:10px;min-width:0}
+.stage-icon{font-size:20px}
+#qCounter{font-size:13px;color:var(--accent);font-weight:700}
+.stage-dots{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.dot{flex:1;min-width:16px;max-width:52px;height:6px;border-radius:99px;background:rgba(255,255,255,.09);transition:.3s}
+.dot.done{background:linear-gradient(90deg,var(--accent2),var(--accent))}
+.dot.current{background:var(--accent);box-shadow:0 0 8px rgba(34,211,238,.7)}
 .progress-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-#qCounter{font-size:13px;color:var(--muted);font-weight:600}
 .progress{height:8px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden;margin-bottom:24px}
 #progressBar{
   height:100%;width:0;border-radius:99px;transition:width .4s ease;
@@ -221,6 +227,16 @@ main{padding:34px 0 60px}
 .result-actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
 
 /* ---------- پایگاه دانش ---------- */
+.stages-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-bottom:28px}
+.stage-item{display:flex;align-items:center;gap:11px;padding:13px 16px;border-radius:13px}
+.stage-item b{
+  font-size:11.5px;color:#081018;font-weight:800;
+  background:linear-gradient(135deg,var(--accent),#4ade80);
+  border-radius:7px;padding:2px 9px;white-space:nowrap;
+}
+.stage-item .st-icon{font-size:19px}
+.stage-item .st-title{flex:1;font-size:13.5px;font-weight:600}
+.stage-item .st-count{font-size:11.5px;color:var(--muted);white-space:nowrap}
 .kb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
 .kb-card{padding:0;overflow:hidden}
 .kb-card summary{
@@ -281,11 +297,13 @@ main{padding:34px 0 60px}
 
 /* ---------- ریسپانسیو ---------- */
 @media (max-width:760px){
-  .tips-row,.stats-row,.about-grid{grid-template-columns:1fr}
+  .tips-row,.about-grid,.stages-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
   .hero{padding:30px 20px}
   .quiz-wrap{padding:20px}
   .result{padding:20px}
   .topbar-inner{justify-content:center}
+  .dot{min-width:9px}
 }
 
 /* ---------- چاپ گزارش ---------- */

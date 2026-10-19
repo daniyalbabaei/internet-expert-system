@@ -82,8 +82,14 @@ function evaluate(){
 function renderQuestion(q){
   const actives = activeQuestions();
   const done = actives.filter(x => x.id in answers).length;
-  $('#qCounter').textContent = `سؤال ${fa(done + 1)} از ${fa(actives.length)}`;
+  const stage = STAGES[q.stage - 1];
+  $('#qCounter').textContent = `مرحلهٔ ${fa(q.stage)} از ${fa(STAGES.length)} • ${stage.title} • سؤال ${fa(done + 1)}`;
   $('#progressBar').style.width = ((done / actives.length) * 100) + '%';
+  $('#stageIcon').textContent = stage.icon;
+  $('#stageDots').innerHTML = STAGES.map((s, i) => {
+    const cls = (i + 1) < q.stage ? 'done' : ((i + 1) === q.stage ? 'current' : '');
+    return `<span class="dot ${cls}" title="مرحلهٔ ${fa(i + 1)}: ${s.title}"></span>`;
+  }).join('');
 
   const card = $('#questionCard');
   card.innerHTML = `
@@ -202,9 +208,21 @@ function renderKB(){
   $('#statDiag').textContent = fa(Object.keys(DIAGNOSES).length);
   $('#statRules').textContent = fa(RULES.length);
   $('#statQ').textContent = fa(QUESTIONS.length);
+  $('#statStages').textContent = fa(STAGES.length);
   $('#aboutQ').textContent = fa(QUESTIONS.length);
   $('#aboutD').textContent = fa(Object.keys(DIAGNOSES).length);
   $('#aboutR').textContent = fa(RULES.length);
+
+  $('#stagesList').innerHTML = STAGES.map((s, i) => {
+    const count = QUESTIONS.filter(q => q.stage === i + 1).length;
+    return `
+      <div class="stage-item glass">
+        <b>مرحلهٔ ${fa(i + 1)}</b>
+        <span class="st-icon">${s.icon}</span>
+        <span class="st-title">${s.title}</span>
+        <span class="st-count">${fa(count)} سؤال</span>
+      </div>`;
+  }).join('');
 
   $('#kbGrid').innerHTML = Object.entries(DIAGNOSES).map(([key, d]) => `
     <details class="kb-card glass">
